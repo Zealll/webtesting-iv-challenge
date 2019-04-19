@@ -2,7 +2,7 @@ const db = require('../data/usersDB.js')
 
 module.exports = {
     create,
-    // delete
+    remove
 }
 
 async function create(user) {
@@ -10,5 +10,11 @@ async function create(user) {
     return db('users')
         .where({ id })
         .first()
+}
+
+function remove(id) {
+    return db('users')
+    .where('id', id)
+    .del()
 }
 
